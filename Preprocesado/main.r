@@ -19,6 +19,7 @@ datos <- read.csv("../Datos/bikes.csv", sep=",")
 # Mostramos los datos originales
 head(datos)
 
+
 #########################
 # ETAPA DE PREPROCESADO #
 #########################
