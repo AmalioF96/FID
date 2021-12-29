@@ -12,6 +12,7 @@ library("stringi")
 source("Name.r")
 source("Kms_driven.r")
 source("Consumption.r")
+source("Location.r")
 
 #Carga de Datos
 # Lee fichero datasets/dataset.csv
@@ -33,7 +34,8 @@ names(datos)[names(datos) == 'model_name'] <- 'model'
 
 datos = preprocesarColumnaName(datos);
 datos = preprocesarColumnaConsumption(datos);
-Datos = preprocesarColumnaKmsDriven(datos);
+datos = preprocesarColumnaKmsDriven(datos);
+datos = preprocesarColumnaLocation(datos);
 
 print("")
 print("END");
