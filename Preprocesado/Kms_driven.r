@@ -12,7 +12,7 @@ convertirKmsANumerico <- function(datos){
 
 compararConMileage <- function(datos){
     #En el caso de que kms_driven sea = a mileage o = 0 lo sustituimos por NA
-    datos$kms_driven <- ifelse(datos$kms_driven %in% datos$mileage, NA, datos$kms_driven)
+    datos$kms_driven <- ifelse(datos$kms_driven %in% datos$consumption, NA, datos$kms_driven)
     datos$kms_driven <- ifelse(datos$kms_driven %in% 0, NA, datos$kms_driven)
 
     return(datos);
