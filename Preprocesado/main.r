@@ -20,6 +20,8 @@ datos <- read.csv("../Datos/bikes.csv", sep=",")
 head(datos)
 
 print("")
+print("START")
+print("")
 #########################
 # ETAPA DE PREPROCESADO #
 #########################
@@ -27,13 +29,15 @@ print("")
 #Renombramos las columnas de los datos originales
 names(datos)[names(datos) == 'mileage'] <- 'consumption'
 names(datos)[names(datos) == 'power'] <- 'BHP'
+names(datos)[names(datos) == 'model_name'] <- 'model'
 
 datos = preprocesarColumnaName(datos);
 datos = preprocesarColumnaConsumption(datos);
-datos = preprocesarColumnaKmsDriven(datos);
+Datos = preprocesarColumnaKmsDriven(datos);
 
-print("");
-
+print("")
+print("END");
+print("")
 # Mostrmos el resultado
 head(datos)
 
