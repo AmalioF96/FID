@@ -22,12 +22,12 @@ eliminarCilindrada <- function(datos){
     # Eliminamos los números sueltos y los que tengan la cadena cc
     
     datos$model = stri_replace_last_regex(datos$model,"(\\s\\d+cc)","");
-    datos$model = stri_replace_last_regex(datos$model,"(\\d{3})","");
+    datos$model = stri_replace_last_regex(datos$model,"(\\s\\d{3,})","");
     return(datos);
 }
 separarModeloYMarca <- function(datos){
     datos$brand <- gsub("([A-Za-z]+).*", "\\1", datos$model)
-    #datos$model <- gsub("([A-Za-z]+).*", "\\1", Dataframe1$COL1)
+    datos$model <- gsub("^([A-Za-z]+\\s)", "", datos$model)
     return(datos);
 }
 preprocesarColumnaName <- function(datos){
