@@ -14,6 +14,7 @@ source("Kms_driven.r")
 source("Consumption.r")
 source("Location.r")
 source("Bhp.r")
+source("Owner.r")
 
 #Carga de Datos
 # Lee fichero datasets/dataset.csv
@@ -38,7 +39,7 @@ datos = preprocesarColumnaConsumption(datos);
 datos = preprocesarColumnaKmsDriven(datos);
 datos = preprocesarColumnaLocation(datos);
 datos = preprocesarColumnaBHP(datos);
-
+datos = preprocesarColumnaOwner(datos);
 print("")
 print("END");
 print("")
