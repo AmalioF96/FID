@@ -24,7 +24,10 @@ transformarKWaBPH <- function(datos){
 preprocesarColumnaBHP <- function(datos){
     print("Creamos la columna isElectric");
     datos = localizarMotosElectricas(datos);
+    print("Eliminamos el texto de la columna BHP");
     datos = eliminarMedida(datos);
+    print("Transformamos los kW a PH");
     datos = transformarKWaBPH(datos);
+    
     return(datos)
 }
