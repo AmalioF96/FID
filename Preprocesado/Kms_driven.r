@@ -4,7 +4,7 @@ convertirKmsANumerico <- function(datos){
     datos$kms_driven = stri_replace_last_regex(datos$kms_driven,"(\\D{1,99})","");
     datos$kms_driven = stri_replace_last_regex(datos$kms_driven,"(\\D{1,99})","");
 
-    datos$kms_driven <- as.numeric(datos$kms_driven)
+    datos$kms_driven <- as.double(datos$kms_driven)
 
     return(datos);             
 
@@ -12,7 +12,7 @@ convertirKmsANumerico <- function(datos){
 
 compararConMileage <- function(datos){
     #En el caso de que kms_driven sea = a mileage o = 0 lo sustituimos por NA
-    datos$kms_driven <- ifelse(datos$kms_driven %in% datos$mileage, NA, datos$kms_driven)
+    datos$kms_driven <- ifelse(datos$kms_driven %in% datos$consumption, NA, datos$kms_driven)
     datos$kms_driven <- ifelse(datos$kms_driven %in% 0, NA, datos$kms_driven)
 
     return(datos);
