@@ -4,7 +4,7 @@ convertirKmsANumerico <- function(datos){
     datos$kms_driven = stri_replace_last_regex(datos$kms_driven,"(\\D{1,99})","");
     datos$kms_driven = stri_replace_last_regex(datos$kms_driven,"(\\D{1,99})","");
 
-    datos$kms_driven <- as.numeric(datos$kms_driven)
+    datos$kms_driven <- as.double(datos$kms_driven)
 
     return(datos);             
 

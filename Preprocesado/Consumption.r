@@ -4,7 +4,7 @@ convertirConsumptionANumerico <- function(datos){
     datos$consumption = stri_replace_last_regex(datos$consumption,"(\\D{1,99})","")
     datos$consumption = stri_replace_last_regex(datos$consumption,"(\\D{1,99})","")
 
-    datos$consumption <- as.numeric(datos$consumption)
+    datos$consumption <- as.double(datos$consumption)
 
     return(datos);
 }
