@@ -28,6 +28,7 @@ head(datos)
 print("")
 print("START")
 print("")
+
 #########################
 # ETAPA DE PREPROCESADO #
 #########################
