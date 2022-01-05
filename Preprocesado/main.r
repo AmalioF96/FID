@@ -17,6 +17,7 @@ source("Consumption.r")
 source("Location.r")
 source("Bhp.r")
 source("Owner.r")
+source("Price.r")
 source("NaReplacement.r")
 
 #Carga de Datos
@@ -44,6 +45,7 @@ datos = preprocesarColumnaKmsDriven(datos);
 datos = preprocesarColumnaLocation(datos);
 datos = preprocesarColumnaBHP(datos);
 datos = preprocesarColumnaOwner(datos);
+datos = preprocesarColumnaPrice(datos);
 #datos = tratarNaValues(datos);
 
 print("")
@@ -53,4 +55,4 @@ print("")
 head(datos)
 
 # Guardamos el resultado
-write.csv(datos,"../Datos/bikes_preprocess.csv")
+write.csv(datos,"../Datos/bikes_preprocess.csv", row.names=FALSE)
