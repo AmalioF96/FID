@@ -35,9 +35,11 @@ eliminarCilindrada <- function(datos){
 separarModeloYMarca <- function(datos){
     # Creamos una nueva columna donde almacenar la marca
     datos$brand <- gsub("([A-Za-z]+).*", "\\1", datos$model)
+    datos$brand <- trimws(datos$brand)
 
     # Dejamos unicamente el modelo en la columna modelo
     datos$model <- gsub("^([A-Za-z]+\\s)", "", datos$model)
+    datos$model <- trimws(datos$model)
 
     return(datos);
 }

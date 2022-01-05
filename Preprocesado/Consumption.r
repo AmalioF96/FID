@@ -4,8 +4,9 @@ convertirConsumptionANumerico <- function(datos){
 
     datos$consumption = trimws(firstup(datos$consumption));
 
-    datos$consumption = stri_replace_last_regex(datos$consumption,"(\\D{1,99})","")
-    datos$consumption = stri_replace_last_regex(datos$consumption,"(\\D{1,99})","")
+    datos$consumption = stri_replace_last_regex(datos$consumption,"(-[0-9]{1,2})","")
+    datos$consumption = stri_replace_last_regex(datos$consumption,"([a-zA-Z]{1,99})","")
+    datos$consumption = stri_replace_last_regex(datos$consumption," ","")
 
     datos$consumption <- as.double(datos$consumption)
 
