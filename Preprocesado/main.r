@@ -44,7 +44,7 @@ datos = preprocesarColumnaKmsDriven(datos);
 datos = preprocesarColumnaLocation(datos);
 datos = preprocesarColumnaBHP(datos);
 datos = preprocesarColumnaOwner(datos);
-datos = tratarNaValues(datos);
+#datos = tratarNaValues(datos);
 
 print("")
 print("END");
