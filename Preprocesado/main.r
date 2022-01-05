@@ -18,7 +18,6 @@ source("Location.r")
 source("Bhp.r")
 source("Owner.r")
 source("Price.r")
-source("NaReplacement.r")
 
 #Carga de Datos
 # Lee fichero datasets/dataset.csv
@@ -46,7 +45,6 @@ datos = preprocesarColumnaLocation(datos);
 datos = preprocesarColumnaBHP(datos);
 datos = preprocesarColumnaOwner(datos);
 datos = preprocesarColumnaPrice(datos);
-#datos = tratarNaValues(datos);
 
 print("")
 print("END");
