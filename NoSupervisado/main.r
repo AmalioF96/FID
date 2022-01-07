@@ -53,4 +53,4 @@ for ( i in 1:numCusters) {
 }
 
 
-write.csv(bikes_preprocess,"Datos/unsupervised_learning_result.csv", row.names = FALSE)
+write.table(bikes_preprocess,"Datos/unsupervised_learning_result.csv", row.names = FALSE, dec=',', sep=';')
