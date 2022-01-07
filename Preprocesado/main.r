@@ -1,12 +1,14 @@
 # Paquetes necesarios
 # install.packages("R.utils")
 # install.packages("tidyverse")
+# install.packages("VIM")
 
 # Carga de librerias
 library("tidyverse")
 library("dplyr")
 library("ggplot2")
 library("stringi")
+library("VIM")
 
 # Importamos los archivos de preprocesado de las columnas
 source("Name.r")
@@ -15,6 +17,7 @@ source("Consumption.r")
 source("Location.r")
 source("Bhp.r")
 source("Owner.r")
+source("Price.r")
 
 #Carga de Datos
 # Lee fichero datasets/dataset.csv
@@ -41,6 +44,8 @@ datos = preprocesarColumnaKmsDriven(datos);
 datos = preprocesarColumnaLocation(datos);
 datos = preprocesarColumnaBHP(datos);
 datos = preprocesarColumnaOwner(datos);
+datos = preprocesarColumnaPrice(datos);
+
 print("")
 print("END");
 print("")
@@ -48,4 +53,4 @@ print("")
 head(datos)
 
 # Guardamos el resultado
-write.csv(datos,"../Datos/bikes_preprocess.csv")
+write.csv(datos,"../Datos/bikes_preprocess.csv", row.names=FALSE)
