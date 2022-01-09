@@ -1,44 +1,20 @@
 #RANDOM FOREST MODEL
 library(tidyverse)
 library(caret)
+library(ranger)
 
 random_forest_prediction<-function(datos){
-  #semilla para reproducibilidad
-  set.seed(1234)
-  
-  #Omitimos valores nulos
-  datos <- datos %>% na.omit()
-  
-  #Dividimos el conjunto de datos de entrenamiento y testing
-  partition <- createDataPartition(datos$price, p = 0.75, list = FALSE)
-  
-  #entrenamiento
-  training <- datos[partition, ]
-  
-  #validación
-  testing  <- datos[-partition, ]
   
   #Elegimos un método de control de entrenamiento (loocv,k-fold cv, boot, ...)
-  trControl_rcv <- trainControl(method  = "repeatedcv", number=10, repeats= 3)
+  trControl_rcv <- trainControl(method = "repeatedcv", repeats= 1 , number=5, allowParallel=TRUE)
 
   #Aplicar random forest
-  RF_MODEL <- train(price ~  kms_driven + cilindrada + BHP + model_year,
+  RF_MODEL <- train(price ~  kms_driven + cilindrada + BHP  + owner + model_year + consumption,
                     data = datos, 
-                    method = "ranger", 
+                    method = "rf",
                     trControl = trControl_rcv, 
-                    tuneLength = 15
+                    tuneLength = 4
                     )
   
-  #RF_MODEL
-  
-  #plot(RF_MODEL)
-  
-  #RF_PRED <- predict(RF_MODEL,newdata = testing)
-  
-  #Mostrar medidas
-  #evaluacion_rf <- postResample(pred = RF_PRED, obs = testing$price)
-  #evaluacion_rf
-  
-  #RETURN MEDIA DE ERRORES
   return (RF_MODEL)
 }
